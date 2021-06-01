@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsfeed/widgets/CardNews.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -17,12 +18,16 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _onPressButton() {
+    Navigator.pushNamed(context, '/login');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        title: Text(widget.title),
+        title: Text("Home"),
         backgroundColor: Theme.of(context).primaryColor,
         actions: <Widget>[
           new Padding(
@@ -33,12 +38,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text('Teste'),
-          ],
+          children: <Widget>[CardNews()],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
